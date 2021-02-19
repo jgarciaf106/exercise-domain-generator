@@ -2,17 +2,19 @@ let pronoun = ['the', 'our'];
 let adj = ['great', 'big'];
 let noun = ['jogger', 'racoon'];
 let extension = ['.com', '.net', '.org'];
-let domain = [];
 
-
-for (ext in extension) {
-    for (pro in pronoun) {
-        for (a in adj) {
-            for (n in noun) {
-                domain.push(pronoun[pro] + adj[a] + noun[n] + extension[ext]);
-            }
-        }
-    }
+const domainGenerator = (arr1, arr2, arr3, arr4)=>{
+    let domain = [];
+    arr1.forEach(pronoun => {
+        arr2.forEach(adj => {
+            arr3.forEach(noun => {
+                arr4.forEach(extension => {
+                    domain.push(pronoun + adj + noun + extension);
+                });
+            });
+        });
+    });
+    return  domain;
 }
 
-console.log(domain);
+console.log(domainGenerator(pronoun,adj,noun,extension));
